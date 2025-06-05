@@ -58,16 +58,19 @@ This repository provides a simple but complete example of how to use the Materia
 
 7. **Create a folder in MaterialsZone**:
    - Open the MaterialsZone app.
-   - Create a folder for this project. 
+   - Create a folder for this project.
+
+8. **Set the `FOLDER_TITLE` variable**
    - Set the `FOLDER_TITLE` variable in the Configuration section of `upload_quantum_dots_data.py` to the folder's title.
 
-8. **Run the script**:
+9. **Run the script**:
    ```bash
-   python upload_quantum_dot_data.py
+   python upload_quantum_dots_data.py
    ```
 
-9. **Check out the results**:
-   Open the MaterialsZone app and check out the two newly created tables.
+10. **Check out the results**:
+
+    Open the MaterialsZone app and check out the two newly created tables.
 
 ## 🚀 What the Script Does
 
