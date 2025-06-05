@@ -49,7 +49,7 @@ def get_folder_id_by_name(folder_title: str) -> str:
     folders = get("/folders")
     for folder in folders:
         if folder["title"] == folder_title:
-            print(f"   Found folder {folder_title} with id {folder['id']}")
+            print(f"  ✓ Found folder {folder_title} with id {folder['id']}")
             return folder["id"]
     raise ValueError("Folder not found")
 
@@ -57,33 +57,33 @@ def get_tables_in_folder(folder_id: str) -> list[dict] | None:
     """Return a list of tables within the specified folder ID."""
     all_tables = get("/tables")
     tables_in_folder = [table for table in all_tables if table["folderId"] == folder_id]
-    print(f"   Found {len(tables_in_folder)} tables in folder {folder_id}")
+    print(f"  ✓ Found {len(tables_in_folder)} tables in folder {folder_id}")
     return tables_in_folder
 
 def create_table(folder_id: str, title: str) -> str:
     """Create a table in a folder and return its ID."""
     payload = {"title": title, "description": title, "folderId": folder_id}
     table_id = post("/tables", payload)["id"]
-    print(f"   Created table {title} with id {table_id}")
+    print(f"  ✓ Created table {title} with id {table_id}")
     return table_id
 
 def delete_table(table_id: str) -> None:
     """Delete the specified table by ID."""
     delete(f"/tables/{table_id}")
-    print(f"   Deleted table {table_id}")
+    print(f"  ✓ Deleted table {table_id}")
 
 def create_protocol(table_id: str, title: str) -> str:
     """Create a protocol in a table and return its ID."""
     payload = {"title": title}
     protocol_id = post(f"/tables/{table_id}/protocols", payload)["id"]
-    print(f"   Created protocol {title} with id {protocol_id}")
+    print(f"  ✓ Created protocol {title} with id {protocol_id}")
     return protocol_id
 
 def create_formulation_protocol(table_id: str, title: str, title_table_ids: list[str]) -> str:
     """Create a formulation protocol and return its ID."""
     payload = {"title": title, "unit": "%", "titleTableIds": title_table_ids}
     formulation_protocol_id = post(f"/tables/{table_id}/formulation-protocols", payload)["id"]
-    print(f"   Created formation protocol {title} with id {formulation_protocol_id}")
+    print(f"  ✓ Created formation protocol {title} with id {formulation_protocol_id}")
     return formulation_protocol_id
 
 def create_parameter(protocol_id: str, title: str, unit: str=None) -> str:
@@ -92,21 +92,21 @@ def create_parameter(protocol_id: str, title: str, unit: str=None) -> str:
     if unit:
         payload["unit"] = unit
     parameter_id = post(f"/protocols/{protocol_id}/parameters", payload)["id"]
-    print(f"   Created parameter {title} with id {parameter_id}")
+    print(f"  ✓ Created parameter {title} with id {parameter_id}")
     return parameter_id
 
 def create_item(table_id: str, title: str, values: list[dict]) -> dict:
     """Create an item with values in a table and return the item details."""
     payload = {"title": title, "values": values}
     item = post(f"/tables/{table_id}/items", payload)
-    print(f"   Created item {title} with id {item['id']}")
+    print(f"  ✓ Created item {title} with id {item['id']}")
     return item
 
 def update_item(item_id: str, values: list[dict]) -> dict:
     """Update an existing item with new values and return the updated item."""
     payload = {"values": values}
     item = patch(f"/items/{item_id}", payload)
-    print(f"   Updated item {item['title']} with id {item['id']}")
+    print(f"  ✓ Updated item {item['title']} with id {item['id']}")
     return item
 
 def create_measurement(item_id: str, title: str, parser_code: str, file: tuple) -> dict:
@@ -114,7 +114,7 @@ def create_measurement(item_id: str, title: str, parser_code: str, file: tuple) 
     payload = {"title": title, "parserConfigurationCode": parser_code}
     files = {"rawFile": file}
     measurement = post_with_file(f"/items/{item_id}/measurements", payload, files)
-    print(f"   Created measurement {title} in item with id {item_id}")
+    print(f"  ✓ Created measurement {title} in item with id {item_id}")
     return measurement
 
 # --- Helper Functions ---
@@ -312,35 +312,37 @@ def upload_emission_spectrum_measurements(exp_col_param_map: dict[str, str], exp
 
 # --- Main Logic ---
 def main():
-    print("Upload Quantum Dots Data Example")
+    print("=" * 60)
+    print("🚀  Upload Quantum Dots Data Example")
+    print("=" * 60)
 
-    print("Get Materials and Experiments data from Excel")
+    print("\n=== Step 1: Fetching Materials and Experiments data from Excel ===")
     df_materials = pd.read_excel(EXCEL_PATH, sheet_name="Materials")
     df_experiments = pd.read_excel(EXCEL_PATH, sheet_name="Experiments")
 
-    print("Get folder_id of the parent folder of the Materials and Experiments tables")
+    print("\n=== Step 2: Fetching folder_id of the parent folder of the Materials and Experiments tables ===\n")
     folder_id = get_folder_id_by_name(FOLDER_TITLE)
 
-    print("Delete existing tables in the folder")
+    print("\n=== Step 3: Deleting existing tables in the folder ===\n")
     materials_table_title = "Materials"
     experiments_table_title = "Experiments"
     delete_existing_tables(folder_id, materials_table_title, experiments_table_title)
 
-    print("Create the Materials table")
+    print("\n=== Step 4: Creating the Materials table ===\n")
     materials_table_id, mat_col_param_map = create_materials_table(folder_id, materials_table_title)
 
-    print("Create the Experiments table")
+    print("\n=== Step 5: Creating the Experiments table ===\n")
     experiments_table_id, exp_col_param_map, formulation_protocol_id = (
         create_experiments_table(folder_id, experiments_table_title,materials_table_id))
 
-    print("Upload the Material items")
+    print("\n=== Step 6: Uploading the Material items ===\n")
     materials_ids_map = upload_materials(materials_table_id, mat_col_param_map, df_materials)
 
-    print("Upload the Experiment items")
+    print("\n=== Step 7: Uploading the Experiment items ===\n")
     experiments_ids_map = upload_experiments(experiments_table_id, exp_col_param_map, materials_ids_map,
                                              formulation_protocol_id, df_experiments)
 
-    print("Analyze the emission spectrum measurements, extracting the peak wavelength, and upload files and results")
+    print("\n=== Step 8: Analyzing the measurements, extracting the peak wavelength, and uploading files and results ===\n")
     upload_emission_spectrum_measurements(exp_col_param_map, experiments_ids_map)
 
 
