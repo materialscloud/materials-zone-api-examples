@@ -10,46 +10,53 @@ This repository provides a simple but complete example of how to use the Materia
 
 ## 📦 Setup Instructions
 
-1. **Clone this repository**:
+1. **Clone this repository (if you haven't already)**:
    ```bash
    git clone https://github.com/materialscloud/materials-zone-api-examples.git
-   cd materials-zone-api-examples/examples/quantum_dot_api_example/
+   cd materials-zone-api-examples
    ```
 
-2. **(Recommended) Create and activate a virtual environment**:
+2. **Switch to the example's directory**:
+   ```bash
+   cd examples/quantum_dot_api_example/
+   ```
+
+3. **(Recommended) Create and activate a virtual environment**:
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies**:
+4. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set your API key** (recommended via environment variable):
+5. **Set your API key** (recommended via environment variable):
    
-   In macOS or Linux:
-   ```bash
-   export MZ_API_KEY="your_api_key_here"
-   ```
-   In the Command Prompt in Windows (cmd.exe):
-   ```bash
-   set MZ_API_KEY=your_api_key_here
-   ```
-   In Windows PowerShell:
-   ```bash
-   $env:MZ_API_KEY = "your_api_key_here"
-   ```
+   - **macOS / Linux**  
+     ```bash
+     export MZ_API_KEY="your_api_key_here"
+     ```
 
-5. **Review the input data**:
+   - **Windows (Command Prompt)**  
+     ```cmd
+     set MZ_API_KEY=your_api_key_here
+     ```
+
+   - **Windows (PowerShell)**  
+     ```powershell
+     $env:MZ_API_KEY = "your_api_key_here"
+     ```
+
+6. **Review the input data**:
    - `quantum_dots_example.xlsx` contains two sheets:
      - **Materials** — List of quantum dot materials with properties like band gap, size, and quantum yield.
      - **Experiments** — Fabrication experiments using the materials, with processing parameters and results.
    - A folder named `measurements/` with one CSV file per experiment (emission spectra data).
    - Note: all data is synthetic data.
 
-6. **Create a folder in MaterialsZone**:
+7. **Create a folder in MaterialsZone**:
    - Open the MaterialsZone app.
    - Create a folder for this project. 
    - Set the `FOLDER_TITLE` variable in the Configuration section of `upload_quantum_dots_data.py` to the folder's title.
@@ -59,7 +66,7 @@ This repository provides a simple but complete example of how to use the Materia
    python upload_quantum_dot_data.py
    ```
 
-7. **Check out the results**:
+9. **Check out the results**:
    Open the MaterialsZone app and check out the two newly created tables.
 
 ## 🚀 What the Script Does
