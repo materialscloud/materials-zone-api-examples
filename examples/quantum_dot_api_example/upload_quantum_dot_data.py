@@ -117,7 +117,7 @@ def create_measurement(item_id: str, title: str, parser_code: str, file: tuple) 
     print(f"  ✓ Created measurement {title} in item with id {item_id}")
     return measurement
 
-# --- Helper Functions ---
+# --- Materials and Experiments Tables Creation and Deletion ---
 def delete_existing_tables(folder_id: str, materials_table_title, experiments_table_title):
     """Delete tables with given titles from the specified folder if they exist."""
     tables = get_tables_in_folder(folder_id)
@@ -146,7 +146,6 @@ def create_protocols(table_id: str, protocols: list[dict]) -> dict[str, str]:
 
     return col_param_map
 
-# --- Tables, Protocols and Parameters Creation ---
 def create_materials_table(folder_id: str, materials_table_title: str) -> tuple[str, dict]:
     """Create the Materials table with predefined protocols and return its ID and column-to-parameter map."""
     materials_table_id = create_table(folder_id, materials_table_title)
