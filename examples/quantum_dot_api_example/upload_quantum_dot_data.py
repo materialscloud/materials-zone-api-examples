@@ -8,7 +8,7 @@ from scipy.signal import find_peaks
 # --- Configuration ---
 API_BASE_URL = "https://api.materials.zone/v2beta1"
 API_KEY = os.getenv("MZ_API_KEY")  # Set this in your environment (see README)
-EXCEL_PATH = "quantum_dots_example.xlsx"
+EXCEL_PATH = "quantum_dot_example.xlsx"
 MEASUREMENT_FOLDER = "measurements"  # Folder containing measurement CSV files
 FOLDER_TITLE = "Quantum Dot Example" # Replace with the title of the folder you created
 HEADERS = {"authorization": API_KEY}

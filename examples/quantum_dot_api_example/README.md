@@ -8,6 +8,17 @@ This repository provides a simple but complete example of how to use the Materia
 - A valid API key for the MaterialsZone REST API
 - Access to an existing folder in the platform (you'll provide the folder name)
 
+## 🚀 What the Script Does
+
+1. **Looks up the folder ID** from the name you enter.
+2. **Checks if the 'Materials' and 'Experiments' tables exist**, creates them if not.
+3. **Defines the necessary parameters** in each table.
+4. **Uploads one item at a time** using the REST API:
+   - Each material with its properties
+   - Each experiment with its setup and result
+5. **Analyzes measurement data** (e.g., finds the peak wavelength in a spectrum).
+6. **Uploads the analysis result** back into the experiment table as a new item.
+
 ## 📦 Setup Instructions
 
 1. **Clone this repository (if you haven't already)**:
@@ -50,7 +61,7 @@ This repository provides a simple but complete example of how to use the Materia
      ```
 
 6. **Review the input data**:
-   - `quantum_dots_example.xlsx` contains two sheets:
+   - `quantum_dot_example.xlsx` contains two sheets:
      - **Materials** — List of quantum dot materials with properties like band gap, size, and quantum yield.
      - **Experiments** — Fabrication experiments using the materials, with processing parameters and results.
    - A folder named `measurements/` with one CSV file per experiment (emission spectra data).
@@ -61,33 +72,22 @@ This repository provides a simple but complete example of how to use the Materia
    - Create a folder for this project.
 
 8. **Set the `FOLDER_TITLE` variable**
-   - Set the `FOLDER_TITLE` variable in the Configuration section of `upload_quantum_dots_data.py` to the folder's title.
+   - Set the `FOLDER_TITLE` variable in the Configuration section of `upload_quantum_dot_data.py` to the folder's title.
 
 9. **Run the script**:
    ```bash
-   python upload_quantum_dots_data.py
+   python upload_quantum_dot_data.py
    ```
 
 10. **Check out the results**:
 
     Open the MaterialsZone app and check out the two newly created tables.
 
-## 🚀 What the Script Does
-
-1. **Looks up the folder ID** from the name you enter.
-2. **Checks if the 'Materials' and 'Experiments' tables exist**, creates them if not.
-3. **Defines the necessary parameters** in each table.
-4. **Uploads one item at a time** using the REST API:
-   - Each material with its properties
-   - Each experiment with its setup and result
-5. **Analyzes measurement data** (e.g., finds the peak wavelength in a spectrum).
-6. **Uploads the analysis result** back into the experiment table as a new item.
-
 ## 📁 File Structure
 
 ```
 quantum-dot-api-example/
-├── quantum_dots_example.xlsx        # Excel file with materials and experiments
+├── quantum_dot_example.xlsx        # Excel file with materials and experiments
 ├── measurements/                    # Folder with measurement CSVs
 │   ├── experiment_01_measurement.csv
 │   ├── ...
