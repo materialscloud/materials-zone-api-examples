@@ -49,7 +49,8 @@ This example walks you through the entire workflow of uploading and analyzing qu
 
    - **Windows**  
      ```cmd
-     venv\Scripts\activat
+     python -m venv venv
+     venv\Scripts\activate
      ```
 
 5. **Install dependencies**:
