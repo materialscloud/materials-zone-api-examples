@@ -34,18 +34,30 @@ This example walks you through the entire workflow of uploading and analyzing qu
    cd examples/quantum_dot_api_example/
    ```
 
-3. **(Recommended) Create and activate a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+3. **Ensure Python is installed on your system**:
 
-4. **Install dependencies**:
+   This project requires Python 3.8 or higher. You can check your installed version with:
+   ```bash
+   python --version
+   
+4. **(Recommended) Create and activate a virtual environment**:
+   - **macOS / Linux**
+     ```bash
+     python -m venv venv
+     source venv/bin/activate
+     ```
+
+   - **Windows**  
+     ```cmd
+     venv\Scripts\activat
+     ```
+
+5. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-5. **Set your API key** (via environment variable):
+6. **Set your API key** (via environment variable):
    
    - **macOS / Linux**  
      ```bash
@@ -62,27 +74,27 @@ This example walks you through the entire workflow of uploading and analyzing qu
      $env:MZ_API_KEY = "your_api_key_here"
      ```
 
-6. **Open the project directory in Windows Explorer (on Windows) or Finder (on Mac) and review the input data**:
+7. **Open the project directory in Windows Explorer (on Windows) or Finder (on Mac) and review the input data**:
    - `quantum_dot_example.xlsx` contains two sheets:
      - **Materials** — List of quantum dot materials with properties like band gap, size, and quantum yield.
      - **Experiments** — Fabrication experiments using the materials, with processing parameters and results.
    - A folder named `measurements/` with one CSV file per experiment (emission spectra data).
    - Note: All data is synthetic and provided solely for demonstration purposes.
 
-7. **Log in to the MaterialsZone app and create a folder for this project**:
+8. **Log in to the MaterialsZone app and create a folder for this project**:
    - By default, the folder is assumed to be called "Quantum Dot Example", but you can choose any title you'd like and adjust the code as explained in the next step.
 
-8. **In `main.py`, set the `FOLDER_TITLE` variable**:
+9. **In `main.py`, set the `FOLDER_TITLE` variable**:
    - Set the `FOLDER_TITLE` variable in the Configuration section of `main.py` to the folder's title.
 
-9. **In your terminal, run the script to execute the full workflow**:
+10. **In your terminal, run the script to execute the full workflow**:
    ```bash
    python main.py
    ```
 
-10. **Check out the results**:
+11. **Check out the results**:
 
-    Log in to the MaterialsZone app and check out the two newly created tables. You should now see the Materials and Experiments tables populated with the uploaded data and measurements.
+    Open the MaterialsZone app, refresh the page and check out the two newly created tables. You should now see the Materials and Experiments tables populated with the uploaded data and measurements.
 
 ## 📁 File Structure
 
