@@ -3,7 +3,7 @@ import psycopg2
 import pandas as pd
 
 # Define the table_id to filter on
-table_id = '<your table id>'  # Replace with your actual UUID
+table_id = '02a32f95-8242-4c87-b725-14824c53f316'  # Replace with your actual UUID
 
 # Connect to PostgreSQL using environment variables
 conn = psycopg2.connect(
@@ -14,7 +14,7 @@ conn = psycopg2.connect(
     password=os.getenv("DB_PASSWORD")
 )
 
-# Updated SQL query including ranks
+# SQL query to fetch the data of a single table by its ID
 query = """
 SELECT 
     ti.title AS title, 
@@ -43,7 +43,7 @@ ORDER BY ti.title, tpr.rank, tp.rank;
 # Load query results into DataFrame
 df_long = pd.read_sql_query(query, conn, params=[table_id])
 
-# Consolidate the value into one column
+# Consolidate the values into one column
 def coalesce_value(row):
     return (
         row["quantity"] if pd.notnull(row["quantity"]) else
@@ -55,7 +55,7 @@ def coalesce_value(row):
 
 df_long["value"] = df_long.apply(coalesce_value, axis=1)
 
-# Construct a multi-index header using rank to sort later
+# Construct a multi-index header using rank for sorting of the protocols and parameters
 df_long["column_key"] = list(zip(
     df_long["protocol_rank"], 
     df_long["parameter_rank"], 

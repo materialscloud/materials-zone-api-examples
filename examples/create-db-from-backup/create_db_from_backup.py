@@ -1,10 +1,8 @@
-
 import os
 import pandas as pd
 import psycopg2
 from psycopg2 import sql
 from pathlib import Path
-from datetime import datetime
 
 # Load environment variables
 DB_HOST = os.getenv("DB_HOST", "localhost")
@@ -13,7 +11,7 @@ DB_NAME = os.getenv("DB_DATABASE")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
-# File paths
+# CSV file paths
 database_path = Path(__file__).parent / "backup" / "database"
 file_paths = {
     "folders": database_path / "folders.csv",
