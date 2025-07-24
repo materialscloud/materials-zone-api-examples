@@ -18,6 +18,27 @@ This example walks through a complete flow for uploading materials and experimen
 - Measurement parsing and upload
 - Emission spectrum analysis
 
+---
+
+### 2. `create_db_from_backup`
+
+**Description:**  
+This example demonstrates how to reconstruct a PostgreSQL database from a MaterialsZone backup, which consists of CSV files and measurement files. It creates the necessary table schemas, populates the tables with data, and provides methods to interact with the database.
+
+Once the database is populated, it shows how to:
+- Execute SQL queries directly on the database.
+- Load data into Pandas DataFrames for further analysis and processing.
+
+This is particularly useful for users working with exported or archived data.
+
+**Key Concepts Covered:**
+- PostgreSQL database setup from CSV backups
+- Schema creation and data ingestion
+- SQL querying of a table
+- Pandas-based querying of a table
+
+---
+
 More examples will be added over time to cover different use cases and data types.
 
 ---
