@@ -39,6 +39,22 @@ This is particularly useful for users working with exported or archived data.
 
 ---
 
+### 3. `parser_api_examples`
+
+**Description:**  
+These examples demonstrate how to use the various parser APIs to manage parsers.
+
+Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs.
+
+**Key Concepts Covered:**
+- Creating a parser
+- Updating a parser
+- Getting all parsers that are accessible to my organization
+- Getting a specific parser
+- Deleting a parser
+
+---
+
 More examples will be added over time to cover different use cases and data types.
 
 ---
