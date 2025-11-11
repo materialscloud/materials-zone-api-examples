@@ -8,7 +8,7 @@ For an example on how to use the parser you've created, please see the quantum_d
 - Python 3.13+
 - A valid API key for the MaterialsZone REST API
 
-## 🚀 What the Script Does - todo dan
+## 🚀 What the Script Does
 
 This example walks you through the all options of using the MaterialsZone parser APIs.
 
