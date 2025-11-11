@@ -1,6 +1,6 @@
 # Parser API Examples
 
-This repository provides a simple but complete example of how to use the MaterialsZone API to manage parsers.
+This repository provides a simple example of how to use the MaterialsZone API to manage parsers.
 For an example on how to use the parser you've created, please see the quantum_dot_api_example in this repository.
 
 ## 🧰 Prerequisites
@@ -14,7 +14,7 @@ This example walks you through the all options of using the MaterialsZone parser
 
 1. **Gets all parsers your organization can currently access** for the user whose API-key you've used.
 2. **Creates a new parser** with a specific configuration.
-3. **Updates the parser you've created**.
+3. **Partially updates the parser you've created**, only the fields you send are updated.
 4. **Gets the parser you've created**.
 5. **Deletes the parser you've created**.
 
