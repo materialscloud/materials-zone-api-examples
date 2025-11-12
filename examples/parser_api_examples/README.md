@@ -8,15 +8,11 @@ For an example on how to use the parser you've created, please see the quantum_d
 - Python 3.13+
 - A valid API key for the MaterialsZone REST API
 
-## 🚀 What the Script Does
+## 🚀 What the main Script Does
 
-This example walks you through the all options of using the MaterialsZone parser APIs.
+This example creates a parser for you to use.
 
-1. **Gets all parsers your organization can currently access** for the user whose API-key you've used.
-2. **Creates a new parser** with a specific configuration.
-3. **Partially updates the parser you've created**, only the fields you send are updated.
-4. **Gets the parser you've created**.
-5. **Deletes the parser you've created**.
+1. **Creates a new parser** with the parser configuration defined in the top of the file.
 
 ## 📦 Setup Instructions
 
@@ -76,8 +72,19 @@ This example walks you through the all options of using the MaterialsZone parser
    ```bash
    python main.py
    ```
-   The script will now call a different api in each step, it will create a parser, update it, then delete it.
-    
+   The script will now create a parser using the configuration at the top of the file.
+
+## 🚀 What the more_examples Script Does
+
+These examples walk you through the all options of using the MaterialsZone parser APIs.
+
+1. **Gets all parsers your organization can currently access** for the user whose API-key you've used.
+2. **Creates a new parser** with an example configuration.
+3. **Partially updates the parser you've created**, only the fields you send are updated.
+4. **Gets the parser you've created**.
+5. **Deletes the parser you've created**.
+
+To run it do steps 1-6, then in step 7 run this command ```python more_examples.py```
 
 ## 📁 File Structure
 
@@ -85,12 +92,14 @@ The `main.py` file is the starting point — it runs the full workflow and shoul
 - `mz_operations.py` handles building requests and calling the API
 - `mz_request_helpers.py` handles building the configuration and computed columns request details  
 - `mz_api_helpers.py` handles low-level API request functions used throughout the project
+- `more_examples.py` Contains more examples for using the parser APIs. 
 
 Here’s the full file structure for this project:
 
 ```
 parser_api_example/
 ├── main.py                            # The main script
+├── more_examples.py                   # Examples on how to use every parser API
 ├── mz_operations.py                   # Helper functions for building requests and calling the apis
 ├── mz_request_helpers.py              # Helper functions for building the configuration and computed columns  
 ├── mz_api_helpers.py                  # Low-level helper functions for sending API requests
