@@ -2,7 +2,7 @@
 
 This example demonstrates how to use the MaterialsZone API to manage parsers. In this example, we build a simple Command-Line Interface (CLI) that can be used by a user to list all parsers, show details of a parser, and create, update and delete parsers.
 
-Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs. For an example on how to use parsers to upload measurement files, please see the quantum_dot_api_example in this repository.
+Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs. For an example on how to use parsers to upload measurement files via the MaterialsZone API, please see the quantum_dot_api_example in this repository.
 
 ## 🧰 Prerequisites
 
@@ -24,7 +24,7 @@ Once a parser is created, it may be used to parse files output by scientific ins
 
 3. **Ensure Python is installed on your system**:
 
-   This project requires Python 3.13 or higher. You can check your installed version with:
+   This project requires Python 3.11 or higher. You can check your installed version with:
    ```bash
    python --version
    
