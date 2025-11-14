@@ -1,0 +1,7 @@
+# Instrument: Keithley 2450 SourceMeter
+# Measurement Type: I-V Sweep
+Voltage (V),Current (A)
+0.10,0.0020
+0.20,0.0041
+0.30,0.0058
+0.40,0.0080
