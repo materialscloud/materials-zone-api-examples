@@ -39,18 +39,18 @@ This is particularly useful for users working with exported or archived data.
 
 ---
 
-### 3. `parser_api_examples`
+### 3. `parser_manager_cli`
 
 **Description:**  
-These examples demonstrate how to use the various parser APIs to manage parsers.
+This example demonstrates how to use the parser APIs to manage parsers. In this example, we build a CLI (Command-Line Interface) tool that can be used by a user to list all parsers, show details of a parser, and create, update and delete parsers.
 
 Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs.
 
 **Key Concepts Covered:**
+- Getting all parsers that are accessible to my organization (both system parser and parsers created by members of the organization)
+- Getting a specific parser
 - Creating a parser
 - Updating a parser
-- Getting all parsers that are accessible to my organization
-- Getting a specific parser
 - Deleting a parser
 
 ---
