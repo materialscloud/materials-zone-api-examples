@@ -12,7 +12,7 @@ communicate with the API.
 import os
 import requests
 
-API_BASE_URL = "https://api-staging.materials.zone/v2beta1"
+API_BASE_URL = "https://api.materials.zone/v2beta1"
 API_KEY = os.getenv("MZ_API_KEY")  # Set this in your environment (see README)
 HEADERS = {"authorization": API_KEY}
 
