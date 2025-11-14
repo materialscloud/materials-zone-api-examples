@@ -1,18 +1,11 @@
-# Parser API Examples
+# Parser Manager CLI
 
-This repository provides a simple example of how to use the MaterialsZone API to manage parsers.
-For an example on how to use the parser you've created, please see the quantum_dot_api_example in this repository.
+This example shows how to use the MaterialsZone API to manage parsers through a simple command-line tool that allows you to list all organization and system parsers, view their details, and create, update, or delete them according to a definition you pass via a JSON file. For an example on how to use the parser to upload measurement files, please see the quantum_dot_api_example in this repository.
 
 ## 🧰 Prerequisites
 
-- Python 3.13+
+- Python 3.11+
 - A valid API key for the MaterialsZone REST API
-
-## 🚀 What the main Script Does
-
-This example creates a parser for you to use.
-
-1. **Creates a new parser** with the parser configuration defined in the top of the file.
 
 ## 📦 Setup Instructions
 
@@ -24,7 +17,7 @@ This example creates a parser for you to use.
 
 2. **Switch to the example's directory**:
    ```bash
-   cd examples/parser_api_examples/
+   cd examples/parser_manager_cli/
    ```
 
 3. **Ensure Python is installed on your system**:
@@ -74,34 +67,18 @@ This example creates a parser for you to use.
    ```
    The script will now create a parser using the configuration at the top of the file.
 
-## 🚀 What the more_examples Script Does
-
-These examples walk you through the all options of using the MaterialsZone parser APIs.
-
-1. **Gets all parsers your organization can currently access** for the user whose API-key you've used.
-2. **Creates a new parser** with an example configuration.
-3. **Partially updates the parser you've created**, only the fields you send are updated.
-4. **Gets the parser you've created**.
-5. **Deletes the parser you've created**.
-
-To run it do steps 1-6, then in step 7 run this command ```python more_examples.py```
-
 ## 📁 File Structure
 
 The `main.py` file is the starting point — it runs the full workflow and should be the only file you need to execute. The other files are helper modules:  
 - `mz_operations.py` handles building requests and calling the API
-- `mz_request_helpers.py` handles building the configuration and computed columns request details  
 - `mz_api_helpers.py` handles low-level API request functions used throughout the project
-- `more_examples.py` Contains more examples for using the parser APIs. 
 
 Here’s the full file structure for this project:
 
 ```
-parser_api_example/
+parser-manager-cli/
 ├── main.py                            # The main script
-├── more_examples.py                   # Examples on how to use every parser API
 ├── mz_operations.py                   # Helper functions for building requests and calling the apis
-├── mz_request_helpers.py              # Helper functions for building the configuration and computed columns  
 ├── mz_api_helpers.py                  # Low-level helper functions for sending API requests
 ├── README.md                          # This file
 └── requirements.txt                   # Python dependencies

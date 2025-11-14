@@ -1,0 +1,33 @@
+{
+  "name": "keithley_iv",
+  "description": "Parses I–V sweep data produced by Keithley SourceMeter instruments and calculates resistance from voltage and current.",
+  "physicalMeasurement": "I–V Measurement",
+  "instrumentManufacturer": "Keithley Instruments",
+  "instrumentModel": "Keithley 2450 SourceMeter®",
+  "supportedFileExtensions": ["csv"],
+  "viewType": "VIEW_2D_CUSTOM_AXES",
+  "parserConfiguration": {
+    "configurationColumns": [
+      {
+        "columnNameInFile": "Voltage (V)",
+        "columnNameInResult": "Voltage",
+        "unit": "V"
+      },
+      {
+        "columnNameInFile": "Current (A)",
+        "columnNameInResult": "Current",
+        "unit": "A"
+      }
+    ],
+    "computedColumns": [
+      {
+        "inputColumnNames": ["Voltage", "Current"],
+        "function": "DIVIDE",
+        "computedColumnName": "Resistance",
+        "unit": "Ω"
+      }
+    ],
+    "metadataExpected": true,
+    "footerExpected": false
+  }
+}
