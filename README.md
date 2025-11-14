@@ -42,9 +42,9 @@ This is particularly useful for users working with exported or archived data.
 ### 3. `parser_manager_cli`
 
 **Description:**  
-This example demonstrates how to use the parser APIs to manage parsers. In this example, we build a CLI (Command-Line Interface) tool that can be used by a user to list all parsers, show details of a parser, and create, update and delete parsers.
+This example demonstrates how to use the MaterialsZone API to manage parsers. In this example, we build a simple Command-Line Interface (CLI) that can be used by a user to list all parsers, show details of a parser, and create, update and delete parsers.
 
-Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs.
+Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs. For an example on how to use parsers to upload measurement files via the MaterialsZone API, please see the quantum_dot_api_example in this repository.
 
 **Key Concepts Covered:**
 - Getting all parsers that are accessible to my organization (both system parser and parsers created by members of the organization)
