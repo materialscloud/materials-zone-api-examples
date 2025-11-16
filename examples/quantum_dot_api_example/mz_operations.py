@@ -95,7 +95,7 @@ def update_item(item_id: str, values: list[dict]) -> dict:
 
 def create_measurement(item_id: str, title: str, parser_code: str, file: tuple) -> dict:
     """Upload a measurement file to an item and return the measurement details."""
-    payload = {"title": title, "parserConfigurationCode": parser_code}
+    payload = {"title": title, "parserCode": parser_code}
     files = {"rawFile": file}
     measurement = post_with_file(f"/items/{item_id}/measurements", payload, files)
     print(f"  ✓ Created measurement {title} in item with id {item_id}")

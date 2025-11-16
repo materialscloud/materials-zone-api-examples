@@ -43,7 +43,7 @@ def upload_emission_spectrum_measurements(exp_col_param_map: dict[str, str], exp
         if peak_x is not None:
             values = [{"parameterId": exp_col_param_map["Peak Wavelength (nm)"], "value": str(peak_x)}]
             update_item(experiments_ids_map[experiment_title], values)
-            parser_code = "PL-AG-E-CC"
+            parser_code = "MZ-PH-AG-CA"
             file = (os.path.basename(file_path), open(file_path, "rb"), "text/csv")
             measurement_title = "Emission Spectrum"
             create_measurement(experiments_ids_map[experiment_title], measurement_title, parser_code, file)
