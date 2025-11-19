@@ -37,5 +37,4 @@ def delete_parser(parser_id: str) -> None:
 def get_all_parsers() -> list[dict[str, Any]]:
     """Get the details for all parsers accessible to the user's organization"""
     all_accessible_parsers = get("/parsers")
-    print(f"  ✓ Got details for all [{len(all_accessible_parsers)}] parsers accessible to the user's organization")
     return all_accessible_parsers
