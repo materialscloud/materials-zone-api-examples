@@ -85,6 +85,9 @@ def load_parser_config(action: str) -> dict | None:
 while True:
     try:
         all_parsers = get_all_parsers()
+    except RuntimeError as error:
+        print(error)
+        break
     except HTTPError as exception:
         print("There was an error retrieving the parsers!")
         print(exception)
