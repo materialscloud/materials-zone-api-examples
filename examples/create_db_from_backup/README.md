@@ -4,6 +4,8 @@
 The script (`create_db_from_backup.py`) creates tables in a PostgreSQL database from the CSV files of a MaterialsZone backup.
 The script connects to a PostgreSQL database, creates tables based on CSV metadata, enforces primary and foreign key constraints, and imports data from CSV files into the database.
 
+If you've already cloned the `materials-zone-api-examples` repository for another example, you can reuse that checkout (running a quick `git pull` to grab the latest changes and new examples) instead of cloning again.
+
 ---
 
 ## 📁 Required CSV Files

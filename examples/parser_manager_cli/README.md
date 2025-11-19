@@ -11,7 +11,7 @@ Once a parser is created, it may be used to parse files output by scientific ins
 
 ## 📦 Setup Instructions
 
-1. **In your terminal, navigate to the folder where you want to place this project. Then clone this repository (if you haven’t already)**:
+1. **In your terminal, navigate to the folder where you want to place this project. Then clone this repository (skip this if you already cloned it for another example; simply reuse that checkout and run `git pull` to grab the latest changes and new examples)**:
    ```bash
    git clone https://github.com/materialscloud/materials-zone-api-examples.git
    cd materials-zone-api-examples
