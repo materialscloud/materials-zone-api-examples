@@ -89,8 +89,8 @@ while True:
         print(error)
         break
     except HTTPError as exception:
-        print("There was an error retrieving the parsers!")
-        print(exception)
+        print(f"There was an error retrieving the parsers! "
+              f"Server response: {exception.response.text}")
         break
 
     sorted_parsers = sorted(
@@ -174,8 +174,8 @@ while True:
             print(f"Use it with the code [{parser["code"]}]")
 
         except HTTPError as exception:
-            print("There was an error creating your parser, it was not created!")
-            print(exception)
+            print(f"There was an error creating your parser, it was not created! "
+                  f"Server response: {exception.response.text}")
         continue
 
     if choice == "5":
@@ -193,8 +193,8 @@ while True:
             update_parser(parser_to_update["id"], parser_config)
             print("Parser updated successfully.")
         except HTTPError as exception:
-            print("There was an error updating the parser!")
-            print(exception)
+            print(f"There was an error updating the parser! "
+                  f"Server response: {exception.response.text}")
         continue
 
     if choice == "6":
@@ -207,8 +207,8 @@ while True:
         try:
             delete_parser(parser_to_delete["id"])
         except HTTPError as exception:
-            print("There was an error deleting the parser!")
-            print(exception)
+            print(f"There was an error deleting the parser! "
+                  f"Server response: {exception.response.text}")
             continue
 
         print("Parser deleted successfully.")
