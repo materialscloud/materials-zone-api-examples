@@ -70,6 +70,7 @@ def load_parser_config(action: str) -> dict | None:
         f"Enter the path to the parser configuration JSON for {action} "
         f"(leave blank for {EXAMPLE_PARSER_CONFIG_PATH}): "
     ).strip() or EXAMPLE_PARSER_CONFIG_PATH
+    print()
 
     try:
         with open(parser_config_path, "r", encoding="utf-8") as config_file:
@@ -114,6 +115,7 @@ while True:
     print("6. Delete a parser")
     print("7. Quit")
     choice = input("Choose an option: ").strip()
+    print()
 
     if choice == "7":
         print("Goodbye!")
@@ -129,6 +131,7 @@ while True:
 
     if choice == "3":
         parser_code = input("Enter the parser code: ").strip()
+        print()
         parser = find_parser_by_code(all_parsers, parser_code)
         if parser is None:
             print("No parser with that code was found.")
@@ -180,6 +183,7 @@ while True:
 
     if choice == "5":
         parser_code = input("Enter the parser code to update: ").strip()
+        print()
         parser_to_update = find_parser_by_code(all_parsers, parser_code)
         if parser_to_update is None:
             print("No parser with that code was found.")
@@ -199,6 +203,7 @@ while True:
 
     if choice == "6":
         parser_code = input("Enter the parser code to delete: ").strip()
+        print()
         parser_to_delete = find_parser_by_code(all_parsers, parser_code)
         if parser_to_delete is None:
             print("No parser with that code was found.")
