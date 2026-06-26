@@ -1,0 +1,8 @@
+param,value
+crystallinity_pct,79.5
+
+phase,formula,wt_pct,pdf_num
+Calcite,Ca(CO3),58.3,00-066-0867
+Dolomite,CaMg(CO3)2,24.5,04-008-0789
+Quartz,SiO2,12.8,04-012-0490
+Pyrite,FeS2,4.4,04-014-6085
