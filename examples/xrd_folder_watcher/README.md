@@ -23,7 +23,7 @@ The data model uses two tables. **XRD Phases** stores the set of known crystalli
 
 ## 📦 Setup Instructions
 
-1. **Clone this repository (skip if you already cloned it for another example; run `git pull` to get the latest)**:
+1. **Clone this repository** (skip if you already cloned it for another example; run `git pull` to get the latest):
    ```bash
    git clone https://github.com/materialscloud/materials-zone-api-examples.git
    cd materials-zone-api-examples
@@ -175,3 +175,7 @@ To watch more than one folder — for example one per instrument — run a separ
 ## 📌 Next Steps
 
 - **Run as a background service** — on macOS use `launchd`, on Linux `systemd`, on Windows the Task Scheduler to start `watcher.py` automatically at login.
+
+---
+
+Happy experimenting with XRD! ✨

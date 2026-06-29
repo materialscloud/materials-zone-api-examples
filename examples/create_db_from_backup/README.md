@@ -1,93 +1,109 @@
-
 # Create PostgreSQL Tables from MaterialsZone Backup
 
-The script (`create_db_from_backup.py`) creates tables in a PostgreSQL database from the CSV files of a MaterialsZone backup.
-The script connects to a PostgreSQL database, creates tables based on CSV metadata, enforces primary and foreign key constraints, and imports data from CSV files into the database.
+The script (`create_db_from_backup.py`) creates tables in a PostgreSQL database from the CSV files of a MaterialsZone backup. It connects to the database, creates tables based on CSV metadata, enforces primary and foreign key constraints, and imports the data from the CSV files.
 
-If you've already cloned the `materials-zone-api-examples` repository for another example, you can reuse that checkout (running a quick `git pull` to grab the latest changes and new examples) instead of cloning again.
+## 🧰 Prerequisites
 
----
+- Python 3.8+
+- A running PostgreSQL database
+- A MaterialsZone backup (the `database` and `files` folders)
 
-## 📁 Required CSV Files
+## 🚀 What the Script Does
 
-Create a directory called **backup** in the **same directory** as this script. Unzip the backup and copy the folders **database** and **files** into the **backup** directory. Your project should look like this:
+1. **Connects to your PostgreSQL database** using the connection environment variables.
+2. **Creates the tables** based on the backup's CSV metadata (without dropping existing ones).
+3. **Enforces primary and foreign key constraints** between the tables.
+4. **Imports the CSV data** into the corresponding tables.
+
+## 📦 Setup Instructions
+
+1. **Clone this repository** (skip if you already cloned it for another example; run `git pull` to get the latest):
+   ```bash
+   git clone https://github.com/materialscloud/materials-zone-api-examples.git
+   cd materials-zone-api-examples
+   ```
+
+2. **Switch to the example's directory**:
+   ```bash
+   cd examples/create_db_from_backup/
+   ```
+
+3. **Ensure Python 3.8 or higher is installed**:
+   ```bash
+   python --version
+   ```
+
+4. **(Recommended) Create and activate a virtual environment**:
+   - **macOS / Linux**
+     ```bash
+     python -m venv venv
+     source venv/bin/activate
+     ```
+   - **Windows**
+     ```cmd
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+
+5. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Add your MaterialsZone backup**:
+   Create a directory called `backup` inside this example's folder. Unzip your MaterialsZone backup and copy the `database` and `files` folders into it, so the layout looks like:
+   ```
+   create_db_from_backup/
+   └── backup/
+       ├── database/
+       │   ├── folders.csv
+       │   ├── table_files.csv
+       │   ├── table_items.csv
+       │   ├── table_parameter_enum_values.csv
+       │   ├── table_parameters.csv
+       │   ├── table_protocols.csv
+       │   ├── table_values.csv
+       │   └── tables.csv
+       └── files/
+           └── ...
+   ```
+
+7. **Set your PostgreSQL connection details** (via environment variables):
+   - **macOS / Linux**
+     ```bash
+     export DB_HOST=localhost
+     export DB_PORT=5432
+     export DB_DATABASE=your_database
+     export DB_USER=your_username
+     export DB_PASSWORD=your_password
+     ```
+   - **Windows (Command Prompt)**
+     ```cmd
+     set DB_HOST=localhost
+     set DB_PORT=5432
+     set DB_DATABASE=your_database
+     set DB_USER=your_username
+     set DB_PASSWORD=your_password
+     ```
+
+8. **Run the script**:
+   ```bash
+   python create_db_from_backup.py
+   ```
+   This connects to your database, creates the tables, enforces the constraints, and inserts the CSV data.
+
+## 📁 File Structure
 
 ```
-project-root/
-├── create_db_from_backup.py
-├── README.md
-└── backup/
-    ├── database/
-    │   ├── folders.csv
-    │   ├── table_files.csv
-    │   ├── table_items.csv
-    │   ├── table_parameter_enum_values.csv
-    │   ├── table_parameters.csv
-    │   ├── table_protocols.csv
-    │   ├── table_values.csv
-    │   └── tables.csv
-    └── files/
-        └── ...
+create_db_from_backup/
+├── create_db_from_backup.py    # The main script: creates tables and imports the backup
+├── read_table_to_dataframe.py  # Loads a table into a pandas DataFrame (see below)
+├── requirements.txt            # Python dependencies
+├── README.md                   # This file
+└── backup/                     # Your MaterialsZone backup (you provide this — see setup)
+    ├── database/               # CSV files exported from MaterialsZone
+    └── files/                  # Attached files from the backup
 ```
-
----
-
-## 🔐 Environment Variables
-
-Before running the script, set the following environment variables for your PostgreSQL connection:
-
-```bash
-export DB_HOST=localhost
-export DB_PORT=5432
-export DB_DATABASE=your_database
-export DB_USER=your_username
-export DB_PASSWORD=your_password
-```
-
-These variables are used to securely connect to your PostgreSQL instance.
-
----
-
-## 📦 Dependencies
-
-This project requires **Python 3.8 or higher**.
-
-**(Recommended) Create and activate a virtual environment**:
-
-- **macOS / Linux**
-  ```bash
-  python -m venv venv
-  source venv/bin/activate
-  ```
-- **Windows**
-  ```cmd
-  python -m venv venv
-  venv\Scripts\activate
-  ```
-
-**Install dependencies**:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## ▶️ Running the Script
-
-Once the environment variables are set and CSV files are in place, run the following command in your terminal:
-
-```bash
-python create_db_from_backup.py
-```
-
-This will:
-- Connect to your PostgreSQL database
-- Create the necessary tables (without dropping existing ones)
-- Enforce primary and foreign key constraints
-- Insert CSV data into the corresponding tables
-
----
 
 ## 📊 Querying a Table Using SQL or Pandas
 
@@ -118,10 +134,18 @@ WHERE t.id = '<table id>'
 ORDER BY ti.title, tpr.title, tp.title;
 ```
 
-This query produces a **"long" presentation** of the data, meaning each row represents a single value recorded in the table. Each row includes the item, protocol, parameter, actual value (whether numeric, text, boolean, enum or link to another item).
+This query produces a **"long" presentation** of the data, meaning each row represents a single value recorded in the table. Each row includes the item, protocol, parameter, and the actual value (whether numeric, text, boolean, enum, or link to another item).
 
-The script `read_table_to_dataframe.py` loads the result of this query into a Pandas DataFrame and converts it to a standard table as it is displayed in the MaterialsZone platform, such that the columns are the parameters of the table, the rows are the items, and the cells are the values. Use the script by setting the `table_id` variable to the UUID of your table and then run the following command in your terminal:
+The script `read_table_to_dataframe.py` loads the result of this query into a pandas DataFrame and converts it to a standard table as displayed in the MaterialsZone platform — the columns are the table's parameters, the rows are the items, and the cells are the values. Use it by setting the `table_id` variable to the UUID of your table and running:
 
 ```bash
 python read_table_to_dataframe.py
 ```
+
+## 📌 Next Step
+
+You can now adjust the scripts to suit your own database and tables! Explore `create_db_from_backup.py` to understand the import workflow and `read_table_to_dataframe.py` to query your data.
+
+---
+
+Happy experimenting! ✨

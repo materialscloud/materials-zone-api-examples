@@ -23,7 +23,7 @@ This example walks you through the entire workflow of uploading and analyzing qu
 
 ## 📦 Setup Instructions
 
-1. **In your terminal, navigate to the folder where you want to place this project. Then clone this repository (skip this if you already cloned it for another example; simply reuse that checkout and run `git pull` to grab the latest changes and new examples)**:
+1. **Clone this repository** (skip if you already cloned it for another example; run `git pull` to get the latest):
    ```bash
    git clone https://github.com/materialscloud/materials-zone-api-examples.git
    cd materials-zone-api-examples
@@ -34,20 +34,18 @@ This example walks you through the entire workflow of uploading and analyzing qu
    cd examples/quantum_dot_api_example/
    ```
 
-3. **Ensure Python is installed on your system**:
-
-   This project requires Python 3.8 or higher. You can check your installed version with:
+3. **Ensure Python 3.8 or higher is installed**:
    ```bash
    python --version
-   
+   ```
+
 4. **(Recommended) Create and activate a virtual environment**:
    - **macOS / Linux**
      ```bash
      python -m venv venv
      source venv/bin/activate
      ```
-
-   - **Windows**  
+   - **Windows**
      ```cmd
      python -m venv venv
      venv\Scripts\activate
@@ -59,18 +57,15 @@ This example walks you through the entire workflow of uploading and analyzing qu
    ```
 
 6. **Set your API key** (via environment variable):
-   
-   - **macOS / Linux**  
+   - **macOS / Linux**
      ```bash
      export MZ_API_KEY="your_api_key_here"
      ```
-
-   - **Windows (Command Prompt)**  
+   - **Windows (Command Prompt)**
      ```cmd
      set MZ_API_KEY=your_api_key_here
      ```
-
-   - **Windows (PowerShell)**  
+   - **Windows (PowerShell)**
      ```powershell
      $env:MZ_API_KEY = "your_api_key_here"
      ```
@@ -89,9 +84,9 @@ This example walks you through the entire workflow of uploading and analyzing qu
    - Set the `FOLDER_TITLE` variable in the Configuration section of `main.py` to the folder's title.
 
 10. **In your terminal, run the script to execute the full workflow**:
-   ```bash
-   python main.py
-   ```
+    ```bash
+    python main.py
+    ```
 
 11. **Check out the results**:
 
@@ -99,31 +94,30 @@ This example walks you through the entire workflow of uploading and analyzing qu
 
 ## 📁 File Structure
 
-The `main.py` file is the starting point — it runs the full workflow and should be the only file you need to execute. The other files are helper modules:  
-- `mz_operations.py` handles table and protocol creation  
-- `analysis.py` handles data analysis and measurement upload  
+The `main.py` file is the starting point — it runs the full workflow and should be the only file you need to execute. The other files are helper modules:
+- `mz_operations.py` handles table and protocol creation
+- `analysis.py` handles data analysis and measurement upload
 - `mz_api_helpers.py` handles low-level API request functions used throughout the project
 
-Here’s the full file structure for this project:
+Here's the full file structure for this project:
 
 ```
-quantum-dot-api-example/
-├── quantum_dot_example.xlsx           # Excel file with materials and experiments
-├── measurements/                      # Folder with measurement CSVs
+quantum_dot_api_example/
+├── quantum_dot_example.xlsx    # Excel file with materials and experiments
+├── measurements/               # Folder with measurement CSVs
 │   ├── experiment_01_measurement.csv
 │   ├── ...
-├── main.py                            # The main script
-├── mz_operations.py                   # Helper functions for creating tables, protocols, and items
-├── analysis.py                        # Functions for processing measurement data and uploading analysis results
-├── mz_api_helpers.py                  # Low-level helper functions for sending API requests
-├── README.md                          # This file
-└── requirements.txt                   # Python dependencies
+├── main.py                     # The main script
+├── mz_operations.py            # Helper functions for creating tables, protocols, and items
+├── analysis.py                 # Functions for processing measurement data and uploading analysis results
+├── mz_api_helpers.py           # Low-level helper functions for sending API requests
+├── requirements.txt            # Python dependencies
+└── README.md                   # This file
 ```
 
 ## 📌 Next Step
 
 You can now adjust the data and script to suit your own research and use case! Explore `main.py` to understand the workflow and adjust the supporting modules as needed.
-
 
 ---
 

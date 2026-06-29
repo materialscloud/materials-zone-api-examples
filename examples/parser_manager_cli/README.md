@@ -11,7 +11,7 @@ Once a parser is created, it may be used to parse files output by scientific ins
 
 ## 📦 Setup Instructions
 
-1. **In your terminal, navigate to the folder where you want to place this project. Then clone this repository (skip this if you already cloned it for another example; simply reuse that checkout and run `git pull` to grab the latest changes and new examples)**:
+1. **Clone this repository** (skip if you already cloned it for another example; run `git pull` to get the latest):
    ```bash
    git clone https://github.com/materialscloud/materials-zone-api-examples.git
    cd materials-zone-api-examples
@@ -22,20 +22,18 @@ Once a parser is created, it may be used to parse files output by scientific ins
    cd examples/parser_manager_cli/
    ```
 
-3. **Ensure Python is installed on your system**:
-
-   This project requires Python 3.8 or higher. You can check your installed version with:
+3. **Ensure Python 3.8 or higher is installed**:
    ```bash
    python --version
-   
+   ```
+
 4. **(Recommended) Create and activate a virtual environment**:
    - **macOS / Linux**
      ```bash
      python -m venv venv
      source venv/bin/activate
      ```
-
-   - **Windows**  
+   - **Windows**
      ```cmd
      python -m venv venv
      venv\Scripts\activate
@@ -47,18 +45,15 @@ Once a parser is created, it may be used to parse files output by scientific ins
    ```
 
 6. **Set your API key** (via environment variable):
-   
-   - **macOS / Linux**  
+   - **macOS / Linux**
      ```bash
      export MZ_API_KEY="your_api_key_here"
      ```
-
-   - **Windows (Command Prompt)**  
+   - **Windows (Command Prompt)**
      ```cmd
      set MZ_API_KEY=your_api_key_here
      ```
-
-   - **Windows (PowerShell)**  
+   - **Windows (PowerShell)**
      ```powershell
      $env:MZ_API_KEY = "your_api_key_here"
      ```
@@ -71,25 +66,24 @@ Once a parser is created, it may be used to parse files output by scientific ins
 
 ## 📁 File Structure
 
-The `main.py` file is the starting point — it runs the full workflow and should be the only file you need to execute. The other files are helper modules:  
+The `main.py` file is the starting point — it runs the full workflow and should be the only file you need to execute. The other files are helper modules:
 - `mz_operations.py` handles building requests and calling the API
 - `mz_api_helpers.py` handles low-level API request functions used throughout the project
 
-Here’s the full file structure for this project:
+Here's the full file structure for this project:
 
 ```
-parser-manager-cli/
-├── main.py                            # The main script
-├── mz_operations.py                   # Helper functions for building requests and calling the apis
-├── mz_api_helpers.py                  # Low-level helper functions for sending API requests
-├── README.md                          # This file
-└── requirements.txt                   # Python dependencies
+parser_manager_cli/
+├── main.py             # The main script
+├── mz_operations.py    # Helper functions for building requests and calling the APIs
+├── mz_api_helpers.py   # Low-level helper functions for sending API requests
+├── requirements.txt    # Python dependencies
+└── README.md           # This file
 ```
 
 ## 📌 Next Step
 
 You can now adjust the data and script to suit your own research and use case! Explore `main.py` to understand the workflow and adjust the supporting modules as needed.
-
 
 ---
 
