@@ -93,6 +93,25 @@ The data model uses two tables. **XRD Phases** stores the set of known crystalli
 
 12. **Press Ctrl+C** to stop the watcher when you are done.
 
+## ⚙️ Configuration
+
+Two settings in `config.py` control how the watcher runs. The defaults work for the walkthrough above, but you will likely want to adjust them for your own setup:
+
+| Setting | Default | What it controls |
+|---|---|---|
+| `WATCH_FOLDER` | `"./incoming"` | The local folder the watcher scans for new XRD result files. Point this at the folder your instrument software exports into — for example `"/Users/lab/Documents/XRD exports"` (macOS) or `r"C:\Users\lab\XRD exports"` (Windows). A relative path is resolved from where you run `watcher.py`. |
+| `SCAN_INTERVAL_SEC` | `10` | How often, in seconds, the folder is scanned. This sets the trade-off between responsiveness and how often the watcher wakes up. |
+
+### Choosing a scan interval
+
+`SCAN_INTERVAL_SEC` is just the number of seconds the watcher waits between scans, so you can tune it from near-real-time to an occasional sync:
+
+- **Near-real-time** — `10` (the default) checks every 10 seconds; files are picked up almost as soon as they are exported.
+- **Periodic** — `300` checks every 5 minutes, `3600` every hour.
+- **Daily sync** — `86400` scans once every 24 hours. With a long interval like this, leave `watcher.py` running in the background and it will sync once per period; only files that are new or changed since the last scan are uploaded, so nothing is processed twice.
+
+Note that the interval is measured from the end of one scan to the start of the next — the watcher always processes whatever has accumulated in `WATCH_FOLDER` since it last looked, regardless of how long the interval is.
+
 ## 📁 File Structure
 
 ```
