@@ -9,6 +9,8 @@ specific tasks like creating materials and experiment tables, or uploading data 
 
 You can use these operations in your main script to build and manage your workspace.
 """
+from __future__ import annotations
+
 from typing import Any
 
 from mz_api_helpers import delete, get, patch, post

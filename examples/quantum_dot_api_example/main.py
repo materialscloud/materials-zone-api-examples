@@ -11,6 +11,8 @@ To run the full example, just execute this file. Make sure you've set your API k
 in the environment and placed your Excel and CSV files in the correct locations.
 """
 
+from __future__ import annotations
+
 import pandas as pd
 from mz_operations import (
     get_folder_id_by_name,

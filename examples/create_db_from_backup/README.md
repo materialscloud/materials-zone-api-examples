@@ -50,16 +50,25 @@ These variables are used to securely connect to your PostgreSQL instance.
 
 ## 📦 Dependencies
 
-Install the required Python packages either poetry by running
+This project requires **Python 3.8 or higher**.
+
+**(Recommended) Create and activate a virtual environment**:
+
+- **macOS / Linux**
+  ```bash
+  python -m venv venv
+  source venv/bin/activate
+  ```
+- **Windows**
+  ```cmd
+  python -m venv venv
+  venv\Scripts\activate
+  ```
+
+**Install dependencies**:
 
 ```bash
-poetry install
-```
-
-or by installing directly with `pip`:
-
-```bash
-pip install pandas psycopg2-binary
+pip install -r requirements.txt
 ```
 
 ---

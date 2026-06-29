@@ -6,6 +6,8 @@ This is the main script that runs the full example workflow.
 It contains examples on how to use the parser APIs.
 For additional examples and information, please go to https://developer.materials.zone/
 """
+from __future__ import annotations
+
 import json
 
 from requests import HTTPError

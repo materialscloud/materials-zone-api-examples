@@ -6,7 +6,7 @@ Once a parser is created, it may be used to parse files output by scientific ins
 
 ## 🧰 Prerequisites
 
-- Python 3.11+
+- Python 3.8+
 - A valid API key for the MaterialsZone REST API
 
 ## 📦 Setup Instructions
@@ -24,7 +24,7 @@ Once a parser is created, it may be used to parse files output by scientific ins
 
 3. **Ensure Python is installed on your system**:
 
-   This project requires Python 3.11 or higher. You can check your installed version with:
+   This project requires Python 3.8 or higher. You can check your installed version with:
    ```bash
    python --version
    

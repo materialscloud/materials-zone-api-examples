@@ -10,6 +10,8 @@ specific tasks like creating materials and experiment tables, or uploading data 
 You can use these operations in your main script to build and manage your workspace.
 """
 
+from __future__ import annotations
+
 from mz_api_helpers import get, post, post_with_file, patch, delete
 
 def get_folder_id_by_name(folder_title: str) -> str:

@@ -9,6 +9,8 @@ You can use this after uploading your experiment items to automatically extract
 meaningful results from CSV files and attach them to the right items.
 """
 
+from __future__ import annotations
+
 import os
 import glob
 import numpy as np

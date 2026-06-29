@@ -8,6 +8,8 @@ table structure, finding and creating phase items, uploading XRD composition
 data as formulation values, and attaching the raw CSV file to a material item.
 """
 
+from __future__ import annotations
+
 from pathlib import Path
 from mz_api_helpers import get, post, post_with_file, patch
 

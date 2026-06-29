@@ -8,6 +8,8 @@ You do not need to modify this file. Just use the functions provided to
 communicate with the API.
 """
 
+from __future__ import annotations
+
 import os
 import requests
 from dotenv import load_dotenv

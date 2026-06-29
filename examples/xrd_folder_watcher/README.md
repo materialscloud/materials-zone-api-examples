@@ -6,7 +6,7 @@ This example demonstrates how to build an automation that watches a local folder
 
 ## 🧰 Prerequisites
 
-- Python 3.10+
+- Python 3.8+
 - A valid API key for the MaterialsZone REST API
 - An existing folder in MaterialsZone where the tables will be created
 
@@ -34,7 +34,7 @@ The data model uses two tables. **XRD Phases** stores the set of known crystalli
    cd examples/xrd_folder_watcher/
    ```
 
-3. **Ensure Python 3.10 or higher is installed**:
+3. **Ensure Python 3.8 or higher is installed**:
    ```bash
    python --version
    ```
