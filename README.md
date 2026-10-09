@@ -6,30 +6,27 @@ Each example resides in its own subfolder under the `examples/` directory and in
 
 ## 📚 Examples
 
-### 1. `quantum_dot_example`
+### 1. `quantum_dot_api_example`
 
 **Description:**  
-This example walks through a complete flow for uploading materials and experiments related to quantum dots. It includes defining protocols, uploading composition data, processing parameters, and measurement files (emission spectra). It also performs a simple analysis on measurement files and writes the results back to the experiment table.
+An end-to-end example from the quantum dots domain that walks through a complete data upload flow. It defines the tables, protocols and parameters, uploads materials and experiments with their composition and processing data, and uploads the measurement files produced by the instrument. It then runs a simple analysis on the measurements and writes the results back to the experiments table.
+
+This is a good starting point if you want to bring your own lab data into MaterialsZone programmatically, from setting up the data structure to analyzing the uploaded measurements.
 
 **Key Concepts Covered:**
-- API usage
 - Table, protocol and parameter creation
 - Item creation and updates
 - Measurement parsing and upload
-- Emission spectrum analysis
+- Analyzing measurement data and writing results back to items
 
 ---
 
 ### 2. `create_db_from_backup`
 
 **Description:**  
-This example demonstrates how to reconstruct a PostgreSQL database from a MaterialsZone backup, which consists of CSV files and measurement files. It creates the necessary table schemas, populates the tables with data, and provides methods to interact with the database.
+This example demonstrates how to reconstruct a PostgreSQL database from a MaterialsZone backup, which consists of CSV files and measurement files. It creates the table schemas and populates them with the backup data.
 
-Once the database is populated, it shows how to:
-- Execute SQL queries directly on the database.
-- Load data into Pandas DataFrames for further analysis and processing.
-
-This is particularly useful for users working with exported or archived data.
+Once the database is populated, it shows how to query the data either directly with SQL or by loading it into Pandas DataFrames for further analysis. This is particularly useful if you work with exported or archived data, or want to analyze your data with your own tools outside the platform.
 
 **Key Concepts Covered:**
 - PostgreSQL database setup from CSV backups
@@ -42,16 +39,30 @@ This is particularly useful for users working with exported or archived data.
 ### 3. `parser_manager_cli`
 
 **Description:**  
-This example demonstrates how to use the MaterialsZone API to manage parsers. In this example, we build a simple Command-Line Interface (CLI) that can be used by a user to list all parsers, show details of a parser, and create, update and delete parsers.
+This example demonstrates how to use the MaterialsZone API to manage parsers, by building a simple command-line interface (CLI) to list, view, create, update and delete them.
 
-Once a parser is created, it may be used to parse files output by scientific instruments into a MaterialsZone common format, which can then be viewed in various graphs. For an example on how to use parsers to upload measurement files via the MaterialsZone API, please see the quantum_dot_api_example in this repository.
+Parsers convert files output by scientific instruments into the MaterialsZone common format, which can then be viewed in various graphs. This example is useful if you want to manage your organization's parsers from code or scripts. For an example of using parsers to upload measurement files, see `quantum_dot_api_example`.
 
 **Key Concepts Covered:**
-- Getting all parsers that are accessible to my organization (both system parser and parsers created by members of the organization)
+- Listing the parsers accessible to your organization
 - Getting a specific parser
-- Creating a parser
-- Updating a parser
-- Deleting a parser
+- Creating, updating and deleting parsers
+
+---
+
+### 4. `xrd_folder_watcher`
+
+**Description:**  
+An automation example from the X-ray diffraction (XRD) domain. It watches a local folder where an instrument's analysis software exports its result files, and automatically uploads new and changed files to MaterialsZone, so the data is available for search, visualization and modeling without manual uploads.
+
+The example is split into a setup script that runs once to create the table structure, and a watcher script that keeps running in the background and scans the folder at a configurable interval. It is a useful template for connecting any instrument that exports files to a local folder, since the file parser can be replaced to support other formats.
+
+**Key Concepts Covered:**
+- Table, protocol and parameter creation
+- Formulation protocols that reference items in another table
+- Finding or creating items by title
+- Detecting new and changed files and re-uploading updated data
+- Running a periodic folder-watching automation
 
 ---
 
